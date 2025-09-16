@@ -63,24 +63,6 @@ npm start
   }
 }
 ```
-
-## API 参考
-
-此服务器与 [意大利笑话 API](https://italian-jokes.vercel.app/) 集成，提供:
-
-- **端点**: `GET /api/jokes`
-- **查询参数**: 
-  - `subtype`: 按子类型筛选笑话
-- **响应格式**:
-  ```json
-  {
-    "id": 1,
-    "joke": "Why did the Mafia cross the road? Forget about it.",
-    "type": "Italian",
-    "subtype": "One-liner"
-  }
-  ```
-
 ### 数据来源归属
 
 此 MCP 服务器使用由 Daniel Bliss 创建的意大利笑话 API。笑话和 API 结构来源于:

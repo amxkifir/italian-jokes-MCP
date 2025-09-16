@@ -1,5 +1,18 @@
 #!/usr/bin/env node
 
+/**
+ * Italian Jokes MCP Server
+ * 
+ * A Model Context Protocol server that provides access to Italian jokes
+ * through the Italian Jokes API created by Daniel Bliss.
+ * 
+ * Data Source: https://italian-jokes.vercel.app/
+ * Original API: https://github.com/d-bliss/italian-jokes-api
+ * 
+ * This server acts as a bridge between the Model Context Protocol
+ * and the Italian Jokes API service.
+ */
+
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import {

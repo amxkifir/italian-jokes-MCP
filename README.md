@@ -81,6 +81,15 @@ This server integrates with the [Italian Jokes API](https://italian-jokes.vercel
   }
   ```
 
+### Data Source Attribution
+
+This MCP server uses the Italian Jokes API created by Daniel Bliss. The jokes and API structure are sourced from:
+
+- **API Website**: [https://italian-jokes.vercel.app/](https://italian-jokes.vercel.app/)
+- **Source Repository**: [https://github.com/d-bliss/italian-jokes-api](https://github.com/d-bliss/italian-jokes-api)
+
+All jokes and API responses are provided by the Italian Jokes API service. This MCP server acts as a bridge to make these jokes accessible through the Model Context Protocol.
+
 ## Example Usage
 
 Once integrated with an MCP-compatible client:
@@ -113,6 +122,23 @@ Feel free to contribute by:
 ## License
 
 MIT License - feel free to use this in your own projects!
+
+## Credits and Acknowledgments
+
+This MCP server is built upon the excellent work of:
+
+- **Daniel Bliss** - Creator of the [Italian Jokes API](https://github.com/d-bliss/italian-jokes-api)
+- **Italian Jokes API** - The underlying joke service that powers this MCP server
+- **Model Context Protocol** - The protocol standard that enables AI assistant integration
+
+### Third-Party Services
+
+- **Italian Jokes API**: [https://italian-jokes.vercel.app/](https://italian-jokes.vercel.app/)
+  - Provides all joke content and API functionality
+  - Created and maintained by Daniel Bliss
+  - Licensed under MIT License
+
+This MCP server serves as a bridge between the Model Context Protocol and the Italian Jokes API, enabling AI assistants to access Italian jokes in a standardized way.
 
 ---
 

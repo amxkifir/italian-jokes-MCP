@@ -1,0 +1,34 @@
+{
+  "name": "italian-jokes-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Italian jokes with FastMCP framework",
+  "main": "server.py",
+  "scripts": {
+    "start": "python server.py",
+    "dev": "python server.py",
+    "test": "python -m pytest tests/",
+    "build": "python -m build"
+  },
+  "keywords": [
+    "mcp",
+    "italian",
+    "jokes",
+    "humor",
+    "fastmcp"
+  ],
+  "author": "Italian Jokes MCP",
+  "license": "MIT",
+  "dependencies": {
+    "fastmcp": "^2.0.0",
+    "requests": "^2.31.0",
+    "pydantic": "^2.5.0"
+  },
+  "devDependencies": {
+    "pytest": "^7.4.0",
+    "black": "^23.0.0",
+    "flake8": "^6.0.0"
+  },
+  "python": {
+    "requires": ">=3.8"
+  }
+}

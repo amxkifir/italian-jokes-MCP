@@ -1,170 +1,119 @@
-# Italian Jokes MCP 🇮🇹
+# Italian Jokes MCP Server 🇮🇹
 
-A Model Context Protocol (MCP) server that brings Italian humor to your AI conversations! Built with FastMCP framework and featuring full compatibility with SSE, Studio, and Streamable HTTP protocols.
+A Model Context Protocol (MCP) server that provides access to Italian jokes through the Italian Jokes API. This server allows AI assistants to fetch and share Italian jokes with various subtypes.
 
 ## Features
 
-- 🎭 **Multiple Joke Categories**: One-liner, Observational, Stereotype, Wordplay, and Long jokes
-- 🚀 **FastMCP Framework**: Built on the latest FastMCP 2.0 for optimal performance
-- 📡 **Multiple Protocols**: Supports stdio, HTTP, SSE, and WebSocket connections
-- 📦 **MCPB Compatible**: Packaged as an MCP Bundle for easy installation
-- 🔄 **Streaming Support**: Real-time joke delivery with SSE and WebSocket
-- 🎯 **Studio Integration**: Full compatibility with MCP Studio and Claude desktop apps
+- 🎭 **Multiple Joke Types**: Access jokes from different subtypes including One-liner, Observational, Stereotype, Wordplay, and Long jokes
+- 🔄 **Random Selection**: Get random jokes or specify a particular subtype
+- 🌐 **API Integration**: Seamlessly integrates with the Italian Jokes API
+- 📝 **Rich Formatting**: Returns jokes with proper formatting and metadata
+- ⚡ **Fast Response**: Optimized for quick joke retrieval
+
+## Available Tools
+
+### `get_italian_joke`
+Retrieves a random Italian joke or a joke of a specific subtype.
+
+**Parameters:**
+- `subtype` (optional): The type of joke to fetch
+  - Available options: `All`, `One-liner`, `Observational`, `Stereotype`, `Wordplay`, `Long`
+
+### `list_joke_subtypes`
+Lists all available Italian joke subtypes.
 
 ## Installation
 
-### As MCPB Bundle (Recommended)
-
-1. Download the `.mcpb` file
-2. Open with Claude for macOS/Windows or any MCPB-compatible application
-3. Follow the installation prompts
-
-### Manual Installation
-
-```bash
-# Clone or download the project
-cd italian-jokes-mcp
-
-# Install Python dependencies
-pip install -r requirements.txt
-
-# Run the MCP server
-python server.py
-
-# Or run the HTTP server
-python http_server.py
-```
+1. Clone or download this repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Build the project:
+   ```bash
+   npm run build
+   ```
 
 ## Usage
 
-### MCP Tools
-
-The server provides several tools for accessing Italian jokes:
-
-#### `get_italian_joke`
-Get a random Italian joke with optional category filtering.
-
-```python
-# Get any joke
-get_italian_joke()
-
-# Get a specific type
-get_italian_joke(subtype="One-liner")
+### Development
+Run the server in development mode:
+```bash
+npm run dev
 ```
 
-#### `get_multiple_jokes`
-Fetch multiple jokes at once (1-10 jokes).
-
-```python
-get_multiple_jokes(count=5, subtype="Wordplay")
+### Production
+Build and run the server:
+```bash
+npm run build
+npm start
 ```
 
-#### `list_joke_categories`
-List all available joke categories.
+### Integration with Claude Desktop
 
-#### `health_check`
-Check server and API connectivity status.
-
-### HTTP Endpoints
-
-When running the HTTP server (`python http_server.py`):
-
-- `GET /api/joke` - Get a single joke
-- `GET /api/jokes` - Get multiple jokes
-- `GET /api/categories` - List categories
-- `GET /api/stream/jokes` - SSE joke streaming
-- `GET /api/stream/chunked` - Chunked transfer encoding
-- `WebSocket /ws/jokes` - Real-time joke delivery
-
-### Available Joke Categories
-
-- **All**: Random jokes from all categories
-- **One-liner**: Short, punchy jokes
-- **Observational**: Cultural observations and humor
-- **Stereotype**: Playful stereotypical jokes
-- **Wordplay**: Puns and word-based humor  
-- **Long**: Longer narrative jokes
-
-## API Response Format
+Add this server to your Claude Desktop configuration:
 
 ```json
 {
-  "success": true,
-  "joke": {
-    "id": 1,
-    "text": "Why did the Italian chef refuse to make pizza? He kneaded some space!",
-    "type": "Italian",
-    "subtype": "Wordplay"
+  "mcpServers": {
+    "italian-jokes": {
+      "command": "node",
+      "args": ["path/to/italian-jokes-mcp-server/dist/index.js"]
+    }
   }
 }
 ```
 
-## Configuration
+## API Reference
 
-The server can be configured through environment variables or the manifest configuration:
+This server integrates with the [Italian Jokes API](https://italian-jokes.vercel.app/) which provides:
 
-- `API_TIMEOUT`: Timeout for API requests (default: 10 seconds)
-- `DEFAULT_JOKE_COUNT`: Default number of jokes (default: 3)
-- `HTTP_PORT`: HTTP server port (default: 8000)
-- `ENABLE_LOGGING`: Enable detailed logging (default: true)
+- **Endpoint**: `GET /api/jokes`
+- **Query Parameters**: 
+  - `subtype`: Filter jokes by subtype
+- **Response Format**:
+  ```json
+  {
+    "id": 1,
+    "joke": "Why did the Mafia cross the road? Forget about it.",
+    "type": "Italian",
+    "subtype": "One-liner"
+  }
+  ```
 
-## Development
+## Example Usage
 
-### Project Structure
+Once integrated with an MCP-compatible client:
 
-```
-italian-jokes-mcp/
-├── server.py              # Main MCP server
-├── http_server.py          # HTTP/SSE/WebSocket server
-├── manifest.json           # MCPB manifest
-├── requirements.txt        # Python dependencies
-├── package.json           # Project metadata
-├── README.md              # This file
-└── LICENSE                # MIT license
-```
+1. **Get a random joke**:
+   - Use the `get_italian_joke` tool without parameters
 
-### Running Tests
+2. **Get a specific type of joke**:
+   - Use the `get_italian_joke` tool with `subtype: "One-liner"`
 
-```bash
-python -m pytest tests/
-```
+3. **List available subtypes**:
+   - Use the `list_joke_subtypes` tool
 
-### Code Quality
+## Error Handling
 
-```bash
-# Format code
-black *.py
-
-# Lint code
-flake8 *.py
-```
-
-## Compatibility
-
-- **MCP Protocol**: >=1.0.0
-- **Python**: >=3.8
-- **FastMCP**: >=2.0.0
-- **Platforms**: Windows, macOS, Linux
-- **Claude**: >=3.0.0
+The server includes comprehensive error handling for:
+- Network timeouts
+- API unavailability
+- Invalid subtypes
+- Malformed responses
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+Feel free to contribute by:
+- Adding new features
+- Improving error handling
+- Enhancing documentation
+- Reporting bugs
 
 ## License
 
-MIT License - see LICENSE file for details.
-
-## Acknowledgments
-
-- [Italian Jokes API](https://italian-jokes.vercel.app/) for providing the joke content
-- [FastMCP](https://github.com/jlowin/fastmcp) for the excellent MCP framework
-- [Anthropic](https://github.com/anthropics/mcpb) for the MCPB specification
+MIT License - feel free to use this in your own projects!
 
 ---
 
-*Viva la risata! (Long live laughter!)* 🇮🇹
+*Viva la risata! (Long live laughter!)* 🎉

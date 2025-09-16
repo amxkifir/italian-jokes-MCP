@@ -1,34 +1,34 @@
 {
-  "name": "italian-jokes-mcp",
+  "name": "italian-jokes-mcp-server",
   "version": "1.0.0",
-  "description": "MCP server for Italian jokes with FastMCP framework",
-  "main": "server.py",
+  "description": "A Model Context Protocol server for Italian jokes",
+  "main": "dist/index.js",
+  "type": "module",
   "scripts": {
-    "start": "python server.py",
-    "dev": "python server.py",
-    "test": "python -m pytest tests/",
-    "build": "python -m build"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "jest"
   },
   "keywords": [
     "mcp",
-    "italian",
+    "model-context-protocol",
+    "italian-jokes",
     "jokes",
-    "humor",
-    "fastmcp"
+    "humor"
   ],
-  "author": "Italian Jokes MCP",
+  "author": "Your Name",
   "license": "MIT",
   "dependencies": {
-    "fastmcp": "^2.0.0",
-    "requests": "^2.31.0",
-    "pydantic": "^2.5.0"
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "axios": "^1.6.0"
   },
   "devDependencies": {
-    "pytest": "^7.4.0",
-    "black": "^23.0.0",
-    "flake8": "^6.0.0"
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
   },
-  "python": {
-    "requires": ">=3.8"
+  "bin": {
+    "italian-jokes-mcp-server": "dist/index.js"
   }
 }

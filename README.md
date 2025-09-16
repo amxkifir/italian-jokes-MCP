@@ -1,57 +1,57 @@
-# Italian Jokes MCP Server 🇮🇹
+# 意大利笑话 MCP 服务器 🇮🇹
 
-A Model Context Protocol (MCP) server that provides access to Italian jokes through the Italian Jokes API. This server allows AI assistants to fetch and share Italian jokes with various subtypes.
+一个模型上下文协议 (MCP) 服务器，通过意大利笑话 API 提供意大利笑话访问。该服务器允许 AI 助手获取和分享各种类型的意大利笑话。
 
-## Features
+## 功能特性
 
-- 🎭 **Multiple Joke Types**: Access jokes from different subtypes including One-liner, Observational, Stereotype, Wordplay, and Long jokes
-- 🔄 **Random Selection**: Get random jokes or specify a particular subtype
-- 🌐 **API Integration**: Seamlessly integrates with the Italian Jokes API
-- 📝 **Rich Formatting**: Returns jokes with proper formatting and metadata
-- ⚡ **Fast Response**: Optimized for quick joke retrieval
+- 🎭 **多种笑话类型**: 访问不同子类型的笑话，包括单行笑话、观察笑话、刻板印象笑话、文字游戏笑话和长笑话
+- 🔄 **随机选择**: 获取随机笑话或指定特定子类型
+- 🌐 **API 集成**: 无缝集成意大利笑话 API
+- 📝 **丰富格式**: 返回带有适当格式和元数据的笑话
+- ⚡ **快速响应**: 优化以实现快速笑话检索
 
-## Available Tools
+## 可用工具
 
 ### `get_italian_joke`
-Retrieves a random Italian joke or a joke of a specific subtype.
+检索一个随机的意大利笑话或特定子类型的笑话。
 
-**Parameters:**
-- `subtype` (optional): The type of joke to fetch
-  - Available options: `All`, `One-liner`, `Observational`, `Stereotype`, `Wordplay`, `Long`
+**参数:**
+- `subtype` (可选): 要获取的笑话类型
+  - 可用选项: `All`, `One-liner`, `Observational`, `Stereotype`, `Wordplay`, `Long`
 
 ### `list_joke_subtypes`
-Lists all available Italian joke subtypes.
+列出所有可用的意大利笑话子类型。
 
-## Installation
+## 安装
 
-1. Clone or download this repository
-2. Install dependencies:
+1. 克隆或下载此仓库
+2. 安装依赖:
    ```bash
    npm install
    ```
-3. Build the project:
+3. 构建项目:
    ```bash
    npm run build
    ```
 
-## Usage
+## 使用
 
-### Development
-Run the server in development mode:
+### 开发模式
+在开发模式下运行服务器:
 ```bash
 npm run dev
 ```
 
-### Production
-Build and run the server:
+### 生产模式
+构建并运行服务器:
 ```bash
 npm run build
 npm start
 ```
 
-### Integration with LLM Assistants
+### 与 LLM 助手集成
 
-Add this server to your LLM Assistant configuration:
+将此服务器添加到您的 LLM 助手配置中:
 
 ```json
 {
@@ -64,14 +64,14 @@ Add this server to your LLM Assistant configuration:
 }
 ```
 
-## API Reference
+## API 参考
 
-This server integrates with the [Italian Jokes API](https://italian-jokes.vercel.app/) which provides:
+此服务器与 [意大利笑话 API](https://italian-jokes.vercel.app/) 集成，提供:
 
-- **Endpoint**: `GET /api/jokes`
-- **Query Parameters**: 
-  - `subtype`: Filter jokes by subtype
-- **Response Format**:
+- **端点**: `GET /api/jokes`
+- **查询参数**: 
+  - `subtype`: 按子类型筛选笑话
+- **响应格式**:
   ```json
   {
     "id": 1,
@@ -81,65 +81,65 @@ This server integrates with the [Italian Jokes API](https://italian-jokes.vercel
   }
   ```
 
-### Data Source Attribution
+### 数据来源归属
 
-This MCP server uses the Italian Jokes API created by Daniel Bliss. The jokes and API structure are sourced from:
+此 MCP 服务器使用由 Daniel Bliss 创建的意大利笑话 API。笑话和 API 结构来源于:
 
-- **API Website**: [https://italian-jokes.vercel.app/](https://italian-jokes.vercel.app/)
-- **Source Repository**: [https://github.com/d-bliss/italian-jokes-api](https://github.com/d-bliss/italian-jokes-api)
+- **API 网站**: [https://italian-jokes.vercel.app/](https://italian-jokes.vercel.app/)
+- **源代码仓库**: [https://github.com/d-bliss/italian-jokes-api](https://github.com/d-bliss/italian-jokes-api)
 
-All jokes and API responses are provided by the Italian Jokes API service. This MCP server acts as a bridge to make these jokes accessible through the Model Context Protocol.
+所有笑话和 API 响应均由意大利笑话 API 服务提供。此 MCP 服务器充当桥梁，使这些笑话可以通过模型上下文协议访问。
 
-## Example Usage
+## 使用示例
 
-Once integrated with an MCP-compatible client:
+一旦与 MCP 兼容的客户端集成:
 
-1. **Get a random joke**:
-   - Use the `get_italian_joke` tool without parameters
+1. **获取随机笑话**:
+   - 使用不带参数的 `get_italian_joke` 工具
 
-2. **Get a specific type of joke**:
-   - Use the `get_italian_joke` tool with `subtype: "One-liner"`
+2. **获取特定类型的笑话**:
+   - 使用带有 `subtype: "One-liner"` 参数的 `get_italian_joke` 工具
 
-3. **List available subtypes**:
-   - Use the `list_joke_subtypes` tool
+3. **列出可用子类型**:
+   - 使用 `list_joke_subtypes` 工具
 
-## Error Handling
+## 错误处理
 
-The server includes comprehensive error handling for:
-- Network timeouts
-- API unavailability
-- Invalid subtypes
-- Malformed responses
+服务器包含全面的错误处理，包括:
+- 网络超时
+- API 不可用
+- 无效的子类型
+- 格式错误的响应
 
-## Contributing
+## 贡献
 
-Feel free to contribute by:
-- Adding new features
-- Improving error handling
-- Enhancing documentation
-- Reporting bugs
+欢迎通过以下方式贡献:
+- 添加新功能
+- 改进错误处理
+- 增强文档
+- 报告错误
 
-## License
+## 许可证
 
-MIT License - feel free to use this in your own projects!
+MIT 许可证 - 欢迎在您自己的项目中使用!
 
-## Credits and Acknowledgments
+## 致谢
 
-This MCP server is built upon the excellent work of:
+此 MCP 服务器建立在以下优秀工作的基础上:
 
-- **Daniel Bliss** - Creator of the [Italian Jokes API](https://github.com/d-bliss/italian-jokes-api)
-- **Italian Jokes API** - The underlying joke service that powers this MCP server
-- **Model Context Protocol** - The protocol standard that enables AI assistant integration
+- **Daniel Bliss** - [意大利笑话 API](https://github.com/d-bliss/italian-jokes-api) 的创建者
+- **意大利笑话 API** - 为此 MCP 服务器提供支持的底层笑话服务
+- **模型上下文协议** - 实现 AI 助手集成的协议标准
 
-### Third-Party Services
+### 第三方服务
 
-- **Italian Jokes API**: [https://italian-jokes.vercel.app/](https://italian-jokes.vercel.app/)
-  - Provides all joke content and API functionality
-  - Created and maintained by Daniel Bliss
-  - Licensed under MIT License
+- **意大利笑话 API**: [https://italian-jokes.vercel.app/](https://italian-jokes.vercel.app/)
+  - 提供所有笑话内容和 API 功能
+  - 由 Daniel Bliss 创建和维护
+  - 采用 MIT 许可证
 
-This MCP server serves as a bridge between the Model Context Protocol and the Italian Jokes API, enabling AI assistants to access Italian jokes in a standardized way.
+此 MCP 服务器充当模型上下文协议和意大利笑话 API 之间的桥梁，使 AI 助手能够以标准化方式访问意大利笑话。
 
 ---
 
-*Viva la risata! (Long live laughter!)* 🎉
+*Viva la risata! (笑声长存!)* 🎉

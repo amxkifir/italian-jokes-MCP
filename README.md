@@ -49,9 +49,9 @@ npm run build
 npm start
 ```
 
-### Integration with Claude Desktop
+### Integration with LLM Assistants
 
-Add this server to your Claude Desktop configuration:
+Add this server to your LLM Assistant configuration:
 
 ```json
 {
